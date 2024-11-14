@@ -124,19 +124,20 @@ def retrieval_score(circuit, target_image, dims=(4, 4), shots=1024):
     n_pixels = len(target_image)
     counts = run_circuit(circuit, shots=shots)
     reconstructed_image = reconstruct_image(dims, n_pixels, counts, shots)
-    mae = np.abs(target_image - reconstructed_image).mean()
-    return mae
+    mse = ((target_image - reconstructed_image)**2).mean()
+
+    return mse
 
 
-def retrieval_efficiency_score(mae, complexity):
+def retrieval_efficiency_score(mse, complexity):
     """
     Calculate the retrieval efficiency score as a ratio of MAE to complexity.
 
     Parameters:
-        mae (float): Mean Absolute Error (MAE) of image reconstruction.
+        mse (float): Mean Square Error (MSE) of image reconstruction.
         complexity (float): Complexity score of the encoding.
 
     Returns:
         float: Retrieval efficiency score.
     """
-    return mae / complexity
+    return mse / complexity

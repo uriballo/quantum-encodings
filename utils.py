@@ -57,7 +57,6 @@ def collect_metrics(encoding_func, n_min=1, n_max=8, n_channels=1):
     
     return qubits_usage, depth
 
-
 def plot_scalability(encoding_func, n_channels=1):
     qubits_usage, depth = collect_metrics(encoding_func, n_channels=n_channels)
     scaling = scalability(qubits_usage, depth, n_channels=n_channels)
@@ -90,7 +89,6 @@ def plot_scaling(complexity_vals, two_n_min=1, two_n_max=8):
     plt.legend()
     plt.show()
 
-
 def plot_complexity_scaling(depth_scaling, qubit_scaling, two_n_min=1, two_n_max=8, logscale=False):
     n_values = np.arange(two_n_min, two_n_max + 1)
     print(n_values)
@@ -110,7 +108,6 @@ def plot_complexity_scaling(depth_scaling, qubit_scaling, two_n_min=1, two_n_max
     plt.grid(True)
     plt.legend()
     plt.show()
-
 
 def plot_complexity_scaling_comparison(scaling_1, encoding_name1, scaling_2, encoding_name2, two_n_min=1, two_n_max=8, logscale=False):
     n_values = np.arange(two_n_min, two_n_max+1)
