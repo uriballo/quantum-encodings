@@ -1,7 +1,7 @@
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from metrics import complexity_score, scalability
+from encodings.metrics import complexity_score, scalability
 
 def line_plot(title, metrics, labels, xlabel, ylabel, save_path = "", filename = "plot",
               save_plot = False, show_plot = True):
